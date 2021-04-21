@@ -1,4 +1,4 @@
-import { createConnection, Repository } from 'typeorm';
+import { createConnection } from 'typeorm';
 
 export const Database = {
   async setup(createConnectionModule = createConnection) {
