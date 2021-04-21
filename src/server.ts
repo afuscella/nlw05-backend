@@ -1,14 +1,18 @@
+import 'reflect-metadata';
 import express from 'express';
+import { routes } from './routes';
+import { Database } from './database';
 
-const PORT = 3333;
-const app = express();
+Database.setup()
+  .then(() => {
+    const port = 3333;
+    const app = express();
 
-app.get("/", (req, res) => {
-  return res.json({ message: 'Retrieve' });
-});
+    app.use(express.json());
+    app.use(routes);
 
-app.post("/", (req, res) => {
-  return res.json({ message: 'Created' });
-});
+    app.listen(port, () => console.log(`server is running on ${port}`));
 
-app.listen(PORT, () => console.log(`server is running on ${PORT}`));
+  })
+  .catch(() => console.log());
+
