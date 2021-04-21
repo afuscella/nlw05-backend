@@ -1,5 +1,5 @@
-# nlw05-backend
-NLW 05 backend services
+# ts-chat
+backend services
 
 ### Databases
 
