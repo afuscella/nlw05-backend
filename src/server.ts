@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import 'reflect-metadata';
 import express from 'express';
 import { routes } from './routes';
@@ -12,7 +13,5 @@ Database.setup()
     app.use(routes);
 
     app.listen(port, () => console.log(`server is running on ${port}`));
-
   })
   .catch(() => console.log());
-

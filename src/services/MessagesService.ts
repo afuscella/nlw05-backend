@@ -14,9 +14,8 @@ export interface IMessagesService {
 }
 
 export class MessagesService implements IMessagesService {
-  constructor(private messagesRepository = getCustomRepository(MessagesRepository)) {
+  constructor(private messagesRepository = getCustomRepository(MessagesRepository)) { }
 
-  }
   async handleCreate({ admin_id, text, user_id }: ICreate) {
     const message = this.messagesRepository.create({
       admin_id,
@@ -30,7 +29,7 @@ export class MessagesService implements IMessagesService {
   async handleIndex(user_id: string) {
     const messages = await this.messagesRepository.find({
       where: { user_id },
-      relations: ['user']
+      relations: ['user'],
     });
     return messages;
   }

@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
-import { UsersService } from "../services/UsersService";
+import { UsersService } from '../services/UsersService';
 
 export class UsersController {
-
   // @injection
   constructor(private usersService = new UsersService()) { }
 

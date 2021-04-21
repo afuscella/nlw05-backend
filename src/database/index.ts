@@ -8,4 +8,4 @@ export const Database = {
       throw new Error(err.message);
     }
   },
-}
+};
