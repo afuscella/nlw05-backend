@@ -1,15 +1,20 @@
 import { Request, Response } from 'express';
-import { ISettingsService, SettingsService } from '../services/SettingsService';
+import { SettingsService } from '../services/SettingsService';
 
-export class SettingController {
+export class SettingsController {
 
   // @injection
-  constructor(private settingService: ISettingsService = new SettingsService()) { }
+  constructor(private settingService = new SettingsService()) { }
 
   async create(request: Request, response: Response) {
     const { chat, username } = request.body;
 
-    const settings = await this.settingService.handleCreate(chat, username);
-    return response.json(settings);
+    try {
+      const settings = await this.settingService.handleCreate({ chat, username });
+      return response.status(201).json(settings);
+
+    } catch (err) {
+      return response.status(202).json({ message: err.message })
+    }
   }
 }
