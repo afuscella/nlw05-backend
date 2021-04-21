@@ -7,9 +7,9 @@
     "dev": "ts-node-dev src/server.ts",
     "commit": "cz",
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js",
-    "typeorm:create": "yarn typeorm migration:create -n",
-    "typeorm:run": "yarn typeorm migration:run",
-    "typeorm:revert": "yarn typeorm migration:revert"
+    "migration:create": "yarn typeorm migration:create -n",
+    "migration:run": "yarn typeorm migration:run",
+    "migration:revert": "yarn typeorm migration:revert"
   },
   "dependencies": {
     "express": "^4.17.1",
