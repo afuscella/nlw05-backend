@@ -8,7 +8,8 @@ NLW 05 backend services
 
 #### Run migrations
 
-- yarn typeorm:run
+- `yarn typeorm migration:run`
+- `yarn typeorm migration:create -n <migration>`
 
 #### tools
 
