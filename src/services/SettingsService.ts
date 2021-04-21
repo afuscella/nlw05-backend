@@ -12,7 +12,6 @@ export interface ISettingsService {
 }
 
 export class SettingsService implements ISettingsService {
-
   // @injection
   constructor(private settingsRepository = getCustomRepository(SettingsRepository)) { }
 

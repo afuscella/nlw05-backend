@@ -1,10 +1,11 @@
-import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm'
+import {
+  Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { User } from './User';
 
 @Entity('messages')
 export class Message {
-
   @PrimaryColumn()
   id: string;
 
@@ -29,5 +30,4 @@ export class Message {
       this.id = uuid();
     }
   }
-
 }

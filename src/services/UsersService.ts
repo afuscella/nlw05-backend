@@ -1,6 +1,6 @@
 import { getCustomRepository } from 'typeorm';
 import { User } from '../models/entities/User';
-import { UsersRepository } from "../repositories/UsersRepository";
+import { UsersRepository } from '../repositories/UsersRepository';
 
 interface ICreate {
   email: string;
@@ -11,7 +11,6 @@ export interface IUsersService {
 }
 
 export class UsersService implements IUsersService {
-
   // @injection
   constructor(private usersRepository = getCustomRepository(UsersRepository)) { }
 

@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
-import { IMessagesService, MessagesService } from "../services/MessagesService";
+import { IMessagesService, MessagesService } from '../services/MessagesService';
 
 export class MessagesController {
-
   // @injection
   constructor(private messagesService: IMessagesService = new MessagesService()) { }
 
