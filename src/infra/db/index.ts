@@ -1,7 +1,7 @@
 import { createConnection } from 'typeorm';
 
-export const Database = {
-  async setup(createConnectionModule = createConnection) {
+export const db = {
+  async config(createConnectionModule = createConnection) {
     try {
       return await createConnectionModule();
     } catch (err) {
