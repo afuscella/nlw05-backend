@@ -14,7 +14,11 @@ export interface IMessagesService {
 }
 
 export class MessagesService implements IMessagesService {
-  constructor(private messagesRepository = getCustomRepository(MessagesRepository)) { }
+  private messagesRepository: MessagesRepository;
+
+  constructor(messagesRepository = getCustomRepository(MessagesRepository)) {
+    this.messagesRepository = messagesRepository;
+  }
 
   async handleCreate({ admin_id, text, user_id }: ICreate) {
     const message = this.messagesRepository.create({

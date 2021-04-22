@@ -18,6 +18,9 @@ module.exports = {
     camelcase: 'off',
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+    ],
   },
   settings: {
     'import/resolver': {

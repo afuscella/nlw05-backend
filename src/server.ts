@@ -2,7 +2,7 @@
 import 'reflect-metadata';
 import express from 'express';
 import { routes } from './routes';
-import { Database } from './database';
+import { Database } from './infra/database';
 
 Database.setup()
   .then(() => {

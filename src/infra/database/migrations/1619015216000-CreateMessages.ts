@@ -1,7 +1,7 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+/* eslint-disable class-methods-use-this */
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class CreateMessages1619015216000 implements MigrationInterface {
-
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -32,13 +32,12 @@ export class CreateMessages1619015216000 implements MigrationInterface {
           columnNames: ['user_id'],
           onDelete: 'SET NULL',
           onUpdate: 'SET NULL',
-        }]
-      })
-    )
+        }],
+      }),
+    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable('messages');
   }
-
 }
