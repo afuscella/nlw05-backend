@@ -11,8 +11,12 @@ export interface IUsersService {
 }
 
 export class UsersService implements IUsersService {
+  private usersRepository: UsersRepository;
+
   // @injection
-  constructor(private usersRepository = getCustomRepository(UsersRepository)) { }
+  constructor(usersRepository = getCustomRepository(UsersRepository)) {
+    this.usersRepository = usersRepository;
+  }
 
   async handleCreate({ email }: ICreate) {
     const userExist = await this.usersRepository.findOne({ email });

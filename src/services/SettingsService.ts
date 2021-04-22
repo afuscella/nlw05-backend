@@ -12,8 +12,12 @@ export interface ISettingsService {
 }
 
 export class SettingsService implements ISettingsService {
+  private settingsRepository: SettingsRepository;
+
   // @injection
-  constructor(private settingsRepository = getCustomRepository(SettingsRepository)) { }
+  constructor(settingsRepository = getCustomRepository(SettingsRepository)) {
+    this.settingsRepository = settingsRepository;
+  }
 
   async handleCreate({ chat, username }: ICreate) {
     const isUserAlreadyExist = await this.settingsRepository.findOne({ username });

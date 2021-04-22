@@ -2,8 +2,12 @@ import { Request, Response } from 'express';
 import { IMessagesService, MessagesService } from '../services/MessagesService';
 
 export class MessagesController {
+  private messagesService: IMessagesService;
+
   // @injection
-  constructor(private messagesService: IMessagesService = new MessagesService()) { }
+  constructor(messagesService: IMessagesService = new MessagesService()) {
+    this.messagesService = messagesService;
+  }
 
   async create(request: Request, response: Response) {
     const { admin_id, text, user_id } = request.body;
