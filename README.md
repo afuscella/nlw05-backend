@@ -8,7 +8,7 @@ websocket chat
 - run migrations by `yarn typeorm migration-run`
 - `yarn dev`
 
-### Infrastructure
+## Infrastructure
 
 Database:
 
