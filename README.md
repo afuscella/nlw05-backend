@@ -1,25 +1,30 @@
 # ts-chat
-backend services
+websocket chat
 
-### Databases
 
-- postgres
-- mariadb
+## Getting Started
 
-#### Run migrations
+- run `yarn install` at the root dir
+- run migrations by `yarn typeorm migration-run`
+- `yarn dev`
 
-- `yarn typeorm migration:run`
+### Infrastructure
+
+Database:
+
+- sqlite3
+
+ORM (object relational mapper)
+
+- typeorm
+- ~~sequelize~~
+
+Creating migrations
+
 - `yarn typeorm migration:create -n <migration>`
 
-#### tools
+### useful tools
 
-- beekeeper
+- [beekeeper Open Source SQL Editor](https://www.beekeeperstudio.io/)
+- [knex.js - Query builder](http://knexjs.org/)
 
-### Query builder
- 
-- [knex.js](http://knexjs.org/)
-
-### ORM (object relational mapper)
-
-- sequelize
-- **typeorm**
