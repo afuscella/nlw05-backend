@@ -1,17 +1,15 @@
 /* eslint-disable no-console */
 import 'reflect-metadata';
-import express from 'express';
+import { db } from './infra/db';
+import { Middleware } from './infra/middleware';
 import { routes } from './routes';
-import { Database } from './infra/database';
 
-Database.setup()
-  .then(() => {
+db.config()
+  .then(async () => {
     const port = 3333;
-    const app = express();
+    const middleware = await Middleware.config();
 
-    app.use(express.json());
-    app.use(routes);
-
-    app.listen(port, () => console.log(`server is running on ${port}`));
+    middleware.use(routes);
+    middleware.listen(port, () => console.log(`server is running on ${port}`));
   })
-  .catch(() => console.log());
+  .catch((err) => console.log(err.message));
