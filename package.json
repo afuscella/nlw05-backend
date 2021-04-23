@@ -14,15 +14,20 @@
     "migration:revert": "yarn typeorm migration:revert"
   },
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "uuid": "^8.3.2",
+    "reflect-metadata": "^0.1.13",
+    "socket.io": "^4.0.1",
+    "socket.io-client": "^4.0.1",
     "typeorm": "^0.2.32",
-    "reflect-metadata": "^0.1.13"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
+    "@types/ejs": "^3.0.6",
     "@types/express": "^4.17.11",
+    "@types/socket.io": "^2.1.13",
     "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
