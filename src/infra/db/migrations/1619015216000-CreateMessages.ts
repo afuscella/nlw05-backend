@@ -26,7 +26,7 @@ export class CreateMessages1619015216000 implements MigrationInterface {
           default: 'now()',
         }],
         foreignKeys: [{
-          name: 'fk_user',
+          name: 'fk_messages_user',
           referencedTableName: 'users',
           referencedColumnNames: ['id'],
           columnNames: ['user_id'],

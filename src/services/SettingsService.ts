@@ -2,13 +2,19 @@ import { getCustomRepository } from 'typeorm';
 import { SettingsRepository } from '../repositories/SettingsRepository';
 import { Setting } from '../models/entities/Setting';
 
-interface ICreate {
+interface IParams {
   chat: boolean;
   username: string;
 }
 
+interface ISearch {
+  username: string;
+}
+
 export interface ISettingsService {
-  handleCreate: ({ chat, username }: ICreate) => Promise<Setting>;
+  handleCreate: ({ chat, username }: IParams) => Promise<Setting>;
+  handleUpdate: ({ chat, username }: IParams) => Promise<void>;
+  findByUsername: ({ username }: ISearch) => Promise<Setting>;
 }
 
 export class SettingsService implements ISettingsService {
@@ -19,7 +25,7 @@ export class SettingsService implements ISettingsService {
     this.settingsRepository = settingsRepository;
   }
 
-  async handleCreate({ chat, username }: ICreate) {
+  async handleCreate({ chat, username }: IParams) {
     const isUserAlreadyExist = await this.settingsRepository.findOne({ username });
 
     if (isUserAlreadyExist) {
@@ -29,5 +35,20 @@ export class SettingsService implements ISettingsService {
     await this.settingsRepository.save(setting);
 
     return setting;
+  }
+
+  async handleUpdate({ username, chat }: IParams) {
+    await this.settingsRepository.createQueryBuilder()
+      .update(Setting)
+      .set({ chat })
+      .where('username = :username', {
+        username,
+      })
+      .execute();
+  }
+
+  async findByUsername({ username }) {
+    const settings = await this.settingsRepository.findOne({ username });
+    return settings;
   }
 }
