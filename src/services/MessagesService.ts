@@ -16,6 +16,7 @@ export interface IMessagesService {
 export class MessagesService implements IMessagesService {
   private messagesRepository: MessagesRepository;
 
+  // @injection
   constructor(messagesRepository = getCustomRepository(MessagesRepository)) {
     this.messagesRepository = messagesRepository;
   }
