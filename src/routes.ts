@@ -10,9 +10,19 @@ routes.post('/users', (request, response) => {
   return controller.create(request, response);
 });
 
+routes.get('/settings/:username', (request, response) => {
+  const controller = new SettingsController();
+  return controller.index(request, response);
+});
+
 routes.post('/settings', (request, response) => {
   const controller = new SettingsController();
   return controller.create(request, response);
+});
+
+routes.patch('/settings/:username', (request, response) => {
+  const controller = new SettingsController();
+  return controller.update(request, response);
 });
 
 routes.get('/messages/:id', (request, response) => {
